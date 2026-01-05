@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { QuizProvider } from '../../context/QuizContext';
 import QuestionCard from '../../components/QuestionCard';
-import { act } from '@testing-library/react';
 
 describe('Quiz Flow Integration Tests', () => {
   it('should complete full quiz flow from question 1 to score screen', async () => {

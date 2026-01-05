@@ -3,11 +3,10 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { QuizProvider } from '../../context/QuizContext';
 import QuestionCard from '../../components/QuestionCard';
 import ScoreScreen from '../../components/ScoreScreen';
-import App from '../../App';
 
 describe('Quiz Submission and Scoring Integration Tests', () => {
   it('should enable submit button only on last question with answer', async () => {
-    const { rerender } = render(
+    const { } = render(
       <QuizProvider>
         <QuestionCard />
       </QuizProvider>
