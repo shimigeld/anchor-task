@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import { useCallback, useMemo } from 'react';
 import { useQuiz } from '../context/QuizContext';
-import { quizQuestions } from '../data/quizData';
+import { quizQuestions } from '../mock/quizMockData';
 import { NEXT_QUESTION, PREVIOUS_QUESTION, SUBMIT_QUIZ } from '../store/actions/quizActions';
 import { useAnswers, useCurrentQuestionIndex } from '../store/selectors/quizSelectors';
 

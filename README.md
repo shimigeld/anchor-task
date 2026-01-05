@@ -58,10 +58,10 @@ src/
 │       ├── selectors.test.tsx
 │       └── useCurrentQuestion.test.tsx
 │
-├── data/                          # Static data
-│   ├── quizData.ts               # Quiz questions dataset
+├── mock/                         # Mock data & fixtures
+│   ├── quizMockData.ts          # Quiz questions mock dataset
 │   └── __tests__/
-│       └── quizData.test.ts
+│       └── quizMockData.test.ts
 │
 ├── __tests__/                     # App-level & integration tests
 │   ├── setup.ts                  # Test configuration

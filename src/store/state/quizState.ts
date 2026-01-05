@@ -1,4 +1,4 @@
-import { quizQuestions } from "../../data/quizData";
+import { quizQuestions } from "../../mock/quizMockData";
 
 export interface QuizState {
   currentQuestionIndex: number;

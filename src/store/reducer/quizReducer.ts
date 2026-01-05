@@ -8,7 +8,7 @@ import {
     JUMP_TO_QUESTION,
     RESTART_QUIZ
 } from "../actions/quizActions";
-import { quizQuestions } from "../../data/quizData";
+import { quizQuestions } from "../../mock/quizMockData";
 
 /**
  * Manages quiz state transitions in response to dispatched actions.

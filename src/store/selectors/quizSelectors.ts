@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useQuiz } from '../../context/QuizContext';
-import { quizQuestions } from '../../data/quizData';
+import { quizQuestions } from '../../mock/quizMockData';
 
 /** Reads the current quiz state from the context. */
 const useQuizState = () => useQuiz().state;

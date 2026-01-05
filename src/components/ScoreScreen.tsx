@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography, Box, Button } from '@mui/material';
 import { useQuiz } from '../context/QuizContext';
-import { quizQuestions } from '../data/quizData';
+import { quizQuestions } from '../mock/quizMockData';
 import { RESTART_QUIZ } from '../store/actions/quizActions';
 import { useScore } from '../store/selectors/quizSelectors';
 import { useCallback, useMemo } from 'react';

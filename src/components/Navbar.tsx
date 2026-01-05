@@ -1,7 +1,7 @@
 import { Tabs, Tab, Box } from '@mui/material';
 import { useCallback, useMemo } from 'react';
 import { useQuiz } from '../context/QuizContext';
-import { quizQuestions } from '../data/quizData';
+import { quizQuestions } from '../mock/quizMockData';
 import { JUMP_TO_QUESTION } from '../store/actions/quizActions';
 import { useCurrentQuestionIndex, useAnswers } from '../store/selectors/quizSelectors';
 

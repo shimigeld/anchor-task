@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { quizQuestions } from '../../data/quizData';
+import { quizQuestions } from '../../mock/quizMockData';
 
 describe('Quiz Data', () => {
   it('should have all questions defined', () => {

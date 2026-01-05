@@ -9,7 +9,7 @@ import {
   Radio,
 } from '@mui/material';
 import { useQuiz } from '../context/QuizContext';
-import { quizQuestions } from '../data/quizData';
+import { quizQuestions } from '../mock/quizMockData';
 import Navbar from './Navbar';
 import { 
   SELECT_ANSWER
