@@ -10,7 +10,7 @@ describe('App Component', () => {
 
   it('should display question card', () => {
     render(<App />);
-    expect(screen.getByText(/Question/i)).toBeInTheDocument();
+    expect(screen.getByText(/Question 1\/5/i)).toBeInTheDocument();
   });
 
   it('should render container with proper styling', () => {
