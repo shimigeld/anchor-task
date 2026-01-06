@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { useCurrentQuestion } from '../../store/selectors/quizSelectors';
 import { QuizProvider } from '../../context/QuizContext';
 import { ReactNode } from 'react';
