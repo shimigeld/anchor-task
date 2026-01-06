@@ -1,8 +1,11 @@
-import { Tabs, Tab, Box } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import { useQuiz } from '../context/QuizContext';
-import { quizQuestions } from '../mock/quizMockData';
 import { JUMP_TO_QUESTION } from '../store/actions/quizActions';
-import { useCurrentQuestionIndex, useAnswers } from '../store/selectors/quizSelectors';
+import {
+  useAnswers,
+  useCurrentQuestionIndex,
+} from '../store/selectors/quizSelectors';
+import { quizQuestions } from '../mock/quizMockData';
 
 const TOTAL_QUESTIONS = quizQuestions.length;
 
@@ -19,15 +22,18 @@ const Navbar = () => {
 
   const handleTabClick = (_event: React.SyntheticEvent, newValue: number) => {
     if (newValue <= highestAllowedIndex) {
-        dispatch({ type: JUMP_TO_QUESTION, payload: { questionIndex: newValue } });
+      dispatch({
+        type: JUMP_TO_QUESTION,
+        payload: { questionIndex: newValue },
+      });
     }
   };
 
   return (
     <Box sx={{ width: '100%', borderBottom: 1, borderColor: 'divider', mb: 2 }}>
-      <Tabs 
-        value={currentQuestionIndex} 
-        onChange={handleTabClick} 
+      <Tabs
+        value={currentQuestionIndex}
+        onChange={handleTabClick}
         aria-label="quiz navigation"
         variant="scrollable"
         scrollButtons="auto"
@@ -36,9 +42,9 @@ const Navbar = () => {
         {quizQuestions.map((question, index) => {
           const isDisabled = index > highestAllowedIndex;
           return (
-            <Tab 
-              key={question.id} 
-              label={`Question ${index + 1}`} 
+            <Tab
+              key={question.id}
+              label={`Question ${index + 1}`}
               id={`quiz-tab-${index}`}
               aria-controls={`quiz-tabpanel-${index}`}
               disabled={isDisabled}
