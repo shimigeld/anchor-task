@@ -1,5 +1,4 @@
 import { Box, Button } from '@mui/material';
-import { useCallback, useMemo } from 'react';
 import { useQuiz } from '../context/QuizContext';
 import { quizQuestions } from '../mock/quizMockData';
 import { NEXT_QUESTION, PREVIOUS_QUESTION, SUBMIT_QUIZ } from '../store/actions/quizActions';
@@ -11,22 +10,22 @@ const QuizNavigation = () => {
     const currentQuestionIndex = useCurrentQuestionIndex();
     const answers = useAnswers();
 
-    const handleNext = useCallback(() => {
+    const handleNext = () => {
         dispatch({ type: NEXT_QUESTION });
-    }, [dispatch]);
+    };
 
-    const handlePrevious = useCallback(() => {
+    const handlePrevious = () => {
         dispatch({ type: PREVIOUS_QUESTION });
-    }, [dispatch]);
+    };
 
-    const handleSubmit = useCallback(() => {
+    const handleSubmit = () => {
         dispatch({ type: SUBMIT_QUIZ });
-    }, [dispatch]);
+    };
 
     const totalQuestions = quizQuestions.length;
     const isLastQuestion = currentQuestionIndex === totalQuestions - 1;
     const isFirstQuestion = currentQuestionIndex === 0;
-    const isAnswerSelected = useMemo(() => answers[currentQuestionIndex] !== null, [answers, currentQuestionIndex]);
+    const isAnswerSelected = answers[currentQuestionIndex] !== null;
 
     return (
         <Box className="flex justify-between mt-4">

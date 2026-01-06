@@ -1,5 +1,4 @@
 import { Tabs, Tab, Box } from '@mui/material';
-import { useCallback, useMemo } from 'react';
 import { useQuiz } from '../context/QuizContext';
 import { quizQuestions } from '../mock/quizMockData';
 import { JUMP_TO_QUESTION } from '../store/actions/quizActions';
@@ -13,16 +12,16 @@ const Navbar = () => {
   const currentQuestionIndex = useCurrentQuestionIndex();
   const answers = useAnswers();
 
-  const highestAllowedIndex = useMemo(() => {
+  const highestAllowedIndex = (() => {
     const nextUnanswered = answers.indexOf(null);
     return nextUnanswered === -1 ? TOTAL_QUESTIONS - 1 : nextUnanswered;
-  }, [answers]);
+  })();
 
-  const handleTabClick = useCallback((_event: React.SyntheticEvent, newValue: number) => {
+  const handleTabClick = (_event: React.SyntheticEvent, newValue: number) => {
     if (newValue <= highestAllowedIndex) {
         dispatch({ type: JUMP_TO_QUESTION, payload: { questionIndex: newValue } });
     }
-  }, [dispatch, highestAllowedIndex]);
+  };
 
   return (
     <Box sx={{ width: '100%', borderBottom: 1, borderColor: 'divider', mb: 2 }}>

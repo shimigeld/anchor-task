@@ -3,7 +3,6 @@ import { useQuiz } from '../context/QuizContext';
 import { quizQuestions } from '../mock/quizMockData';
 import { RESTART_QUIZ } from '../store/actions/quizActions';
 import { useScore } from '../store/selectors/quizSelectors';
-import { useCallback, useMemo } from 'react';
 
 const TOTAL_QUESTIONS = quizQuestions.length;
 
@@ -12,16 +11,16 @@ const ScoreScreen = () => {
     const { dispatch } = useQuiz();
 
     const score = useScore();
-    const scorePercentage = useMemo(() => {
+    const scorePercentage = (() => {
         if (!TOTAL_QUESTIONS) {
             return 0;
         }
         return Math.round((score / TOTAL_QUESTIONS) * 100);
-    }, [score]);
+    })();
 
-    const handleRestart = useCallback(() => {
+    const handleRestart = () => {
         dispatch({ type: RESTART_QUIZ });
-    }, [dispatch]);
+    };
 
     return (
         <Card className="w-full max-w-md mx-auto mt-10">

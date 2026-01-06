@@ -162,10 +162,11 @@ interface QuizState {
 
 ## Performance Optimizations
 
-- **Memoized Selectors**: Score calculation and navigation state are memoized using `useMemo`
-- **useCallback Hooks**: Event handlers maintain referential equality to prevent unnecessary re-renders
-- **Efficient Dependencies**: All hook dependencies are carefully managed for optimal performance
-- **React 19 Compatible**: Uses modern React patterns and concurrent features
+- **React 19 Compiler**: Leverages React 19's automatic optimization for component memoization and dependency tracking
+- **Selective Memoization**: `useMemo` retained only for expensive computations (e.g., score calculation with array iteration)
+- **Event Handlers**: Simple callbacks are inlined without `useCallback` - React 19 compiler handles optimization
+- **Efficient Selectors**: Custom hooks efficiently read from context with minimal re-renders
+- **Optimized Dependencies**: All hook dependencies are carefully managed for optimal performance
 
 ## Development Best Practices
 

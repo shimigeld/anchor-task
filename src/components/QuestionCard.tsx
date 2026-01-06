@@ -16,8 +16,6 @@ import {
 } from '../store/actions/quizActions';
 import QuizNavigation from './QuizNavigation';
 import { useAnswers, useCurrentQuestion, useCurrentQuestionIndex } from '../store/selectors/quizSelectors';
-import { useCallback, useMemo } from 'react';
-
 /** Displays the current question, options, and navigation controls. */
 const QuestionCard = () => {
   const { dispatch } = useQuiz();
@@ -25,9 +23,7 @@ const QuestionCard = () => {
   const answers = useAnswers();
   const currentQuestion = useCurrentQuestion()
 
-  const selectedAnswer = useMemo(() => answers[currentQuestionIndex], [answers, currentQuestionIndex]);
-
-  const handleAnswerChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAnswerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: SELECT_ANSWER,
       payload: {
@@ -35,7 +31,7 @@ const QuestionCard = () => {
         answerIndex: parseInt(event.target.value, 10),
       },
     });
-  }, [currentQuestionIndex, dispatch]);
+  };
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
@@ -52,7 +48,7 @@ const QuestionCard = () => {
           <RadioGroup
             aria-label="quiz-options"
             name="quiz-options-group"
-            value={selectedAnswer !== null ? selectedAnswer.toString() : ''}
+            value={answers[currentQuestionIndex] !== null ? answers[currentQuestionIndex].toString() : ''}
             onChange={handleAnswerChange}
           >
             {currentQuestion.options.map((option: string, index: number) => (

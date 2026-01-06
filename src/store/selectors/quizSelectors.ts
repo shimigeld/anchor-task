@@ -20,7 +20,12 @@ export const useCurrentQuestion = () => {
     return quizQuestions[state.currentQuestionIndex];
 };
 
-/** Calculates and memoizes the number of correct answers. */
+/**
+ * Calculates and memoizes the number of correct answers.
+ * KEPT: useMemo is retained because this performs an expensive iteration through
+ * all answers comparing each with the correct answer. This prevents unnecessary
+ * recalculations when the ScoreScreen component re-renders frequently.
+ */
 export const useScore = () => {
     const state = useQuizState();
     return useMemo(() => {
